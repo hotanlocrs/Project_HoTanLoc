@@ -1,0 +1,1 @@
+{"string_digit": "0008", "Execution_time": "0.03690075874328613"}

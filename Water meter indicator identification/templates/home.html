@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>nhan dang dong ho nuoc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col">
+    <br>
+    <h1 action="upload_file" class="display-5">WATER METER</h1>
+    <form action= "upload_file" method="POST" enctype="multipart/form-data">      
+      <div class="mb-3">
+        <input type="file" name ="file" onchange="previewFile()"><br>
+        <img src="" height="200" alt="Image preview...">
+  
+      </div>
+      <input type="submit" class="btn btn-primary"  value="Upload">
+
+
+    </form>
+    
+    </div>
+    <div class="col">
+      <h1> ảnh ban đầu </h1>
+      <img src="{{ user_image }}" alt="User Image" height="200">
+    </div>
+    <div class="col">
+      <h1>Nhận dạng vùng chứa số</h1>
+      <img src="{{ predict_plate }}" alt="User Image" height="200">
+    </div>
+    <br>
+    <div>
+      <h1>dãy số đọc được </h1>
+      <h3>number: {{ value1 }} </h3>
+      <h3>Execution_time: {{ value2 }} </h3>
+    <div>  
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+
+
+
+
+}
+</script>
+
+
+
+</html>
